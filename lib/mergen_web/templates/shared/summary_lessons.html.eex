@@ -1,0 +1,10 @@
+<%= if num_lessons() == 0 do %>
+<p>You have no lessons at the moment.</p>
+<% else %>
+<p>You have
+  <span class="green-text"><b>
+      <%= num_lessons() %></b></span>
+  <%= if num_lessons() == 1 do %>lesson
+  <% else %>lessons
+  <% end %> queued.</p>
+<% end %>

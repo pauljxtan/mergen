@@ -1,0 +1,7 @@
+<h4>Lessons</h4>
+
+<%= render(MergenWeb.SharedView, "summary_lessons.html") %>
+
+<%= if MergenWeb.SharedView.num_lessons() > 0 do %>
+<button class="btn btn-large">Start lessons!</button>
+<% end %>

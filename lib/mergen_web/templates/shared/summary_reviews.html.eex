@@ -1,0 +1,10 @@
+<%= if num_reviews() == 0 do %>
+<p>You have no reviews at the moment.</p>
+<% else %>
+<p>You have
+  <span class="green-text"><b>
+      <%= num_reviews() %></b></span>
+  <%= if num_reviews() == 1 do %>review
+  <% else %>reviews
+  <% end %> queued.</p>
+<% end %>

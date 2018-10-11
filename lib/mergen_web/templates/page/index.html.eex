@@ -1,0 +1,11 @@
+<h4>Summary</h4>
+
+<p class="blue-text"><b>Welcome back!</b></p>
+<ul>
+  <li>
+    <%=render MergenWeb.SharedView, "summary_lessons.html" %>
+  </li>
+  <li>
+    <%= render MergenWeb.SharedView, "summary_reviews.html" %>
+  </li>
+</ul>

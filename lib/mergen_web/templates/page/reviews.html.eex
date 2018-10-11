@@ -1,0 +1,7 @@
+<h4>Reviews</h4>
+
+<%= render(MergenWeb.SharedView, "summary_reviews.html") %>
+
+<%= if MergenWeb.SharedView.num_reviews() > 0 do %>
+<button class="btn btn-large">Start reviews!</button>
+<% end %>

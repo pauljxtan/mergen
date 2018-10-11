@@ -1,0 +1,37 @@
+<h4>All items</h4>
+
+<div class="row">
+  <a href="<%= item_path(@conn, :new) %>" class="btn"><i class="material-icons left">create</i>Create item</a>
+
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+        <th>Prompt</th>
+        <th>Level</th>
+        <th>Last reviewed</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for item <- @items do %>
+      <tr>
+        <td>
+          <%= item.prompt %>
+        </td>
+        <td>
+          <%= item.level %>
+        </td>
+        <td>
+          <%= item.last_reviewed %>
+        </td>
+
+        <td>
+          <%= link "Details", to: item_path(@conn, :show, item), class: "btn btn-xs green" %>
+          <%= link "Edit", to: item_path(@conn, :edit, item), class: "btn btn-xs blue" %>
+          <%= link "Delete", to: item_path(@conn, :delete, item), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-xs red" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

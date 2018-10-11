@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Mergen</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- <link rel="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+</head>
+
+<body>
+  <nav class="purple">
+    <div class="nav-wrapper">
+      <a href="<%= page_path(@conn, :index) %>" class="right brand-logo">Mergen</a>
+      <ul id="nav-mobile" class="left hide-on-small-and-down">
+        <li><a href="<%= page_path(@conn, :index) %>">Summary</a></li>
+        <li><a href="<%= page_path(@conn, :lessons) %>">Lessons</a></li>
+        <li><a href="<%= page_path(@conn, :reviews) %>">Reviews</a></li>
+        <li><a href="<%= item_path(@conn, :index) %>">Items</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <%= if get_flash(@conn, :info) do %>
+    <div class="card-panel green white-text">
+      <%= get_flash(@conn, :info) %>
+    </div>
+    <% end %>
+    <%= if get_flash(@conn, :error) do %>
+    <div class="card-panel deep-orange white-text">
+      <%= get_flash(@conn, :error) %>
+    </div>
+    <% end %>
+
+    <main role="main">
+      <%= render(@view_module, @view_template, assigns) %>
+    </main>
+  </div> <!-- /container -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src='<%= static_path(@conn, "/js/app.js") %>'></script>
+</body>
+
+</html>

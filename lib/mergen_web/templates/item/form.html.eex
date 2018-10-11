@@ -1,0 +1,39 @@
+<%= form_for @changeset, @action, fn f -> %>
+<%= if @changeset.action do %>
+<div class="row">
+  <div class="card-panel deep-orange white-text">
+    <p>Oops, something went wrong! Please check the errors below.</p>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="form-group">
+    <div class="input-field">
+      <%= text_input f, :prompt, class: "form-control" %>
+      <%= label f, :prompt, class: "control-label" %>
+      <%= error_tag f, :prompt %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-field">
+      <%= text_input f, :answer, class: "form-control" %>
+      <%= label f, :answer, class: "control-label" %>
+      <%= error_tag f, :answer %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-field">
+      <%= number_input f, :level, class: "form-control" %>
+      <%= label f, :level, class: "control-label" %>
+      <%= error_tag f, :level %>
+    </div>
+  </div>
+
+  <button class="btn green" type="submit">Submit<i class="material-icons right">send</i></button>
+  <a href="<%= item_path(@conn, :index) %>" class="btn right"><i class="material-icons left">arrow_back</i>Back to
+    index</a>
+</div>
+<% end %>
